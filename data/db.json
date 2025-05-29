@@ -61,22 +61,7 @@
       "preco": 35
     },
     {
-      "id": "d211",
-      "nome": "Show da Fé",
-      "preco": "100"
-    },
-    {
-      "id": "a8ae",
-      "nome": "Show da Fé",
-      "preco": "100"
-    },
-    {
       "id": "8521",
-      "nome": "Show da Fé",
-      "preco": "100"
-    },
-    {
-      "id": "b591",
       "nome": "Show da Fé",
       "preco": "100"
     },
@@ -84,16 +69,6 @@
       "id": "5fa7",
       "nome": "teste",
       "preco": "1414"
-    },
-    {
-      "id": "d01a",
-      "nome": "ccxvc",
-      "preco": "14"
-    },
-    {
-      "id": "8916",
-      "nome": "Futebol Arte 2025",
-      "preco": "200"
     }
   ]
 }

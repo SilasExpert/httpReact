@@ -11,7 +11,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   //4 - Custom
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   const [nome, setNome] = useState("");
   const [preco, setPreco] = useState("");
@@ -62,18 +62,30 @@ function App() {
     setPreco("");
   };
 
+  //função de excluir
+  const handleRemove = (id) => {
+    httpConfig(id, "DELETE");
+  };
+
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
 
-      <ul>
+      {/* Loading */}
+      {loading && <p>Carregando dados...</p>}
+      {error && <p>{error}</p>}
+
+      {!error && (
+        <ul>
           {items && items.map((obj) => (
             <li key={obj.id}>
               {obj.nome} - R$         
-              {obj.preco}         
+              {obj.preco}   
+              <button onClick={() => handleRemove(obj.id)}>Excluir</button>      
             </li>
           ))}
-      </ul>
+        </ul>
+      )}
 
       <div className="add_product">
         <form onSubmit={handleSubmit}>
@@ -85,7 +97,9 @@ function App() {
             Preço:
             <input type="number" value={preco} name='preco' onChange={(e) => setPreco(e.target.value)}/>
           </label>
-          <input type="submit" value="criar"/>
+          {/* 7 - state de loading no post */}
+          {loading && <input type="submit" disabled value="Aguarde"/>}
+          {!loading && <input type="submit" value="Criar"/>}
         </form>
       </div>
 
